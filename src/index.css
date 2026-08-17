@@ -923,6 +923,48 @@ a {
   font-weight: 800;
 }
 
+.video-cards {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.vcard .card-top {
+  margin-top: 0.2rem;
+}
+
+.vthumb {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  margin: -0.2rem -0.2rem 0.85rem;
+  border: 2.5px solid var(--line);
+  border-radius: 0.95rem;
+  background: var(--accent-3);
+}
+
+.vthumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.vthumb .play {
+  position: absolute;
+  right: 0.7rem;
+  top: 0.7rem;
+  display: grid;
+  place-items: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  border: 2px solid var(--line);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--ink);
+  font-size: 0.7rem;
+  box-shadow: 2px 2px 0 var(--line);
+}
+
 footer {
   display: flex;
   justify-content: space-between;
@@ -988,6 +1030,10 @@ footer {
 
   .cards .pcard:last-child {
     grid-column: 1 / -1;
+  }
+
+  .video-cards .pcard:last-child {
+    grid-column: auto;
   }
 }
 

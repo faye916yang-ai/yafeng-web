@@ -142,3 +142,22 @@ export const timeline = [
     title: "宠物 iOS 端待上线",
   },
 ]
+
+export const videos = [
+  {
+    n: "01",
+    title: "不是鸡汤，是躬身入局 AI 的感受",
+    blurb: "认认真真深聊一聊，身处 AI 时代该怎么进入。",
+    cover: "/video-ai.jpg",
+    href: "https://xhslink.cn/o/9bfF2W8xZW9",
+    platform: "小红书",
+  },
+  {
+    n: "02",
+    title: "达到清单上线啦！我们第一个 App",
+    blurb: "陆陆续续两个月，第一个产品终于上线。",
+    cover: "/video-dadao.jpg",
+    href: "https://xhslink.cn/o/9iEbzSsInU1",
+    platform: "小红书",
+  },
+]

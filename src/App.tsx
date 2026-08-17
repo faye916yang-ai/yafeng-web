@@ -7,6 +7,7 @@ import {
   quests,
   site,
   timeline,
+  videos,
 } from "./content"
 
 type Page = "home" | "products" | "videos"
@@ -310,15 +311,30 @@ function VideosPage() {
   return (
     <section className="block">
       <div className="statement">
-        <h1>片子还在路上。先把喜欢的东西做出来，再把做法拍给你。</h1>
+        <h1>先把喜欢的东西做出来，再把做法拍给你。</h1>
       </div>
-      <div className="cards">
-        {["选题中", "拍摄中", "即将上线"].map((t, i) => (
-          <article className="pcard ghost" key={t}>
-            <div className="thumb">{String(i + 1).padStart(2, "0")}</div>
-            <h2>{t}</h2>
-            <p>抖音 / 小红书，先做站，再更新片。</p>
-          </article>
+      <div className="cards video-cards">
+        {videos.map((v) => (
+          <a
+            className="pcard vcard"
+            key={v.n}
+            href={v.href}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <div className="vthumb">
+              <img src={v.cover} alt="" />
+              <span className="play" aria-hidden="true">
+                ▶
+              </span>
+            </div>
+            <div className="card-top">
+              <b>{v.n}</b>
+              <em className="on">{v.platform}</em>
+            </div>
+            <h2>{v.title}</h2>
+            <p>{v.blurb}</p>
+          </a>
         ))}
       </div>
     </section>
