@@ -169,6 +169,23 @@ function HomePage() {
 }
 
 function ProductsPage() {
+  const [openName, setOpenName] = useState<string | null>(null)
+  const openProduct = products.find((p) => p.name === openName) ?? null
+
+  useEffect(() => {
+    if (!openProduct) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpenName(null)
+    }
+    window.addEventListener("keydown", onKey)
+    const prev = document.body.style.overflow
+    document.body.style.overflow = "hidden"
+    return () => {
+      window.removeEventListener("keydown", onKey)
+      document.body.style.overflow = prev
+    }
+  }, [openProduct])
+
   return (
     <section className="block">
       <div className="sec-head">
@@ -184,7 +201,7 @@ function ProductsPage() {
               ) : null}
               <div className="card-top">
                 <b>{p.n}</b>
-                <em className={p.href ? "on" : ""}>{p.status}</em>
+                <em className={p.detail || p.href ? "on" : ""}>{p.status}</em>
               </div>
               <div className="pcard-main">
                 {p.logo ? (
@@ -201,23 +218,90 @@ function ProductsPage() {
             </>
           )
           const cls = `pcard tone-${p.tone}`
-          return p.href ? (
-            <a
-              className={cls}
-              key={p.name}
-              href={p.href}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {inner}
-            </a>
-          ) : (
+          if (p.detail) {
+            return (
+              <button
+                type="button"
+                className={`${cls} is-openable`}
+                key={p.name}
+                onClick={() => setOpenName(p.name)}
+              >
+                {inner}
+              </button>
+            )
+          }
+          if (p.href) {
+            return (
+              <a
+                className={cls}
+                key={p.name}
+                href={p.href}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {inner}
+              </a>
+            )
+          }
+          return (
             <article className={cls} key={p.name}>
               {inner}
             </article>
           )
         })}
       </div>
+
+      {openProduct?.detail ? (
+        <div
+          className="modal-backdrop"
+          role="presentation"
+          onClick={() => setOpenName(null)}
+        >
+          <div
+            className="modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="product-modal-title"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="modal-top">
+              {openProduct.logo ? (
+                <img className="plogo" src={openProduct.logo} alt="" />
+              ) : null}
+              <div>
+                <p className="modal-kicker">{openProduct.status}</p>
+                <h2 id="product-modal-title">{openProduct.name}</h2>
+              </div>
+              <button
+                type="button"
+                className="modal-close"
+                aria-label="关闭"
+                onClick={() => setOpenName(null)}
+              >
+                ×
+              </button>
+            </div>
+            <div className="modal-body">
+              {openProduct.detail.intro.map((line) => (
+                <p key={line}>{line}</p>
+              ))}
+              <p className="platform">{openProduct.platform}</p>
+            </div>
+            <div className="modal-links">
+              {openProduct.detail.links.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {link.label} →
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      ) : null}
     </section>
   )
 }

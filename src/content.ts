@@ -44,9 +44,29 @@ export const products = [
     blurb: "找到人生方向感。目标和待办真正联动。",
     platform: "iOS、安卓、网页版，多端数据同步",
     status: "已上线",
-    href: "https://www.dadao.life",
+    href: null,
     logo: "/logo-dadao.svg",
     tone: "dadao",
+    detail: {
+      intro: [
+        "达到清单帮你把人生目标和每日待办真正连起来。",
+        "先想清楚要去哪，再把今天该做的事排出来；多端同步，随时都能推进。",
+      ],
+      links: [
+        {
+          label: "iOS 下载",
+          href: "https://apps.apple.com/us/app/%E8%BE%BE%E5%88%B0%E6%B8%85%E5%8D%95/id6762112001",
+        },
+        {
+          label: "网页端",
+          href: "https://dadao.life/daily/today",
+        },
+        {
+          label: "公众号介绍",
+          href: "https://mp.weixin.qq.com/s/5wrCrvK8ejfA0QD9GnSMfQ",
+        },
+      ],
+    },
   },
   {
     n: "02",
@@ -57,6 +77,7 @@ export const products = [
     href: null,
     logo: "/logo-yigan.png",
     tone: "yigan",
+    detail: null,
   },
   {
     n: "03",
@@ -67,19 +88,20 @@ export const products = [
     href: null,
     logo: null,
     tone: "plain",
+    detail: null,
   },
 ]
 
 export const timeline = [
   {
     side: "left" as const,
-    date: "2026.04",
+    date: "2026.04.08",
     tag: "已上线",
     title: "开始 vibe coding · 达到清单",
   },
   {
     side: "left" as const,
-    date: "2026.06",
+    date: "2026.06.19",
     tag: "已上线",
     title: "达到清单 iOS 端上线",
   },
@@ -94,6 +116,12 @@ export const timeline = [
     date: "2026.08",
     tag: "已上线",
     title: "达到清单网页版上线，安卓端开放测试",
+  },
+  {
+    side: "left" as const,
+    date: "2026.08.17",
+    tag: "已上线",
+    title: "个人网站部署上线",
   },
   {
     side: "right" as const,
