@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import {
   aboutStory,
+  consulting,
   home,
   lifeNow,
   products,
@@ -10,18 +11,20 @@ import {
   videos,
 } from "./content"
 
-type Page = "home" | "products" | "videos"
+type Page = "home" | "products" | "videos" | "contact" | "courses"
 type Theme = "sky" | "mocha"
 
 const pages: { id: Page; label: string }[] = [
   { id: "home", label: "首页" },
   { id: "products", label: "产品" },
   { id: "videos", label: "视频" },
+  { id: "contact", label: "联系我" },
+  { id: "courses", label: "课程" },
 ]
 
 function readHash(): Page {
   const h = window.location.hash.replace("#", "")
-  if (h === "products" || h === "videos") return h
+  if (h === "products" || h === "videos" || h === "contact" || h === "courses") return h
   return "home"
 }
 
@@ -341,6 +344,121 @@ function VideosPage() {
   )
 }
 
+function ContactPage() {
+  const contacts = [
+    {
+      label: "邮箱",
+      value: site.email,
+      hint: "咨询与合作，请优先邮件联系",
+      href: `mailto:${site.email}`,
+      action: "写邮件 →",
+    },
+    {
+      label: "GitHub",
+      value: site.github,
+      hint: "看看我正在做的产品和代码",
+      href: site.githubUrl,
+      action: "去看看 →",
+    },
+    {
+      label: "小红书",
+      value: site.xhs,
+      hint: "AI 实操、产品记录和真实感受",
+      href: null,
+      action: "搜索账号",
+    },
+    {
+      label: "抖音",
+      value: site.douyin,
+      hint: "账号确认后会在这里同步",
+      href: null,
+      action: "敬请期待",
+    },
+  ]
+
+  return (
+    <section className="block contact-page">
+      <div className="contact-intro">
+        <p className="kicker">CONNECT · COLLABORATE · CREATE</p>
+        <h1>找到我，聊聊你想做的事。</h1>
+        <p>
+          分享 AI 实操，也认真认识每一个想把事情做出来的人。欢迎交流、合作，或来聊聊你的具体问题。
+        </p>
+      </div>
+
+      <div className="contact-grid" aria-label="联系方式">
+        {contacts.map((item, index) => {
+          const content = (
+            <>
+              <div className="contact-card-top">
+                <span>0{index + 1}</span>
+                <em>{item.action}</em>
+              </div>
+              <p>{item.label}</p>
+              <h2>{item.value}</h2>
+              <small>{item.hint}</small>
+            </>
+          )
+
+          return item.href ? (
+            <a
+              className="contact-card is-link"
+              href={item.href}
+              key={item.label}
+              target={item.href.startsWith("http") ? "_blank" : undefined}
+              rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+            >
+              {content}
+            </a>
+          ) : (
+            <article className="contact-card" key={item.label}>
+              {content}
+            </article>
+          )
+        })}
+      </div>
+
+      <section className="consulting-card">
+        <div className="consulting-copy">
+          <p className="kicker">{consulting.eyebrow}</p>
+          <h2>{consulting.title}</h2>
+          <p>{consulting.intro}</p>
+          <a className="cta" href={`mailto:${site.email}?subject=AI 咨询`}>聊聊你的需求 →</a>
+        </div>
+        <div className="consulting-list">
+          {consulting.audiences.map((item, index) => (
+            <article key={item.title}>
+              <span>0{index + 1}</span>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </article>
+          ))}
+          <p className="consulting-note">{consulting.note}</p>
+        </div>
+      </section>
+    </section>
+  )
+}
+
+function CoursesPage() {
+  return (
+    <section className="block courses-page">
+      <div className="course-ticket">
+        <span className="course-label">COURSES · COMING SOON</span>
+        <div>
+          <p className="kicker">正在认真准备中</p>
+          <h1>不讲空泛概念，只分享真正用过的方法。</h1>
+          <p className="course-copy">
+            关于 AI 工具、个人工作流和 vibe coding 的实操课程，正在慢慢打磨。希望它不是“听完就忘”的课，而是能陪你真的做出东西。
+          </p>
+          <a className="cta" href={`mailto:${site.email}?subject=课程上新提醒`}>对课程感兴趣，告诉我 →</a>
+        </div>
+        <strong>敬请期待</strong>
+      </div>
+    </section>
+  )
+}
+
 export default function App() {
   const [page, setPage] = useState<Page>(() =>
     typeof window === "undefined" ? "home" : readHash(),
@@ -387,9 +505,6 @@ export default function App() {
               {p.label}
             </button>
           ))}
-          <a className="mail" href={`mailto:${site.email}`} aria-label="写信">
-            <Glyph name="mail" />
-          </a>
         </nav>
         <div className="themes" role="group" aria-label="配色">
           <button
@@ -413,6 +528,8 @@ export default function App() {
         {page === "home" && <HomePage />}
         {page === "products" && <ProductsPage />}
         {page === "videos" && <VideosPage />}
+        {page === "contact" && <ContactPage />}
+        {page === "courses" && <CoursesPage />}
       </main>
 
       <footer>

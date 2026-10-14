@@ -3,7 +3,28 @@ export const site = {
   nick: "自由雅风风",
   email: "faye916yang@gmail.com",
   xhs: "雅风风在创造",
+  douyin: "账号即将更新",
+  github: "faye916yang-ai",
+  githubUrl: "https://github.com/faye916yang-ai",
   domain: "yafeng.dadao.life",
+}
+
+export const consulting = {
+  eyebrow: "AI 咨询 · 一起把问题做成方案",
+  title: "如果你也想用 AI，把想法真正做出来",
+  intro:
+    "我会陆续开放面向企业老板和职场个人的 AI 咨询，聊清楚你的真实问题，找到适合你的工具、方法与落地路径。",
+  audiences: [
+    {
+      title: "企业与团队",
+      body: "梳理业务里的 AI 使用场景，优化工作流，找到真正值得落地的方向。",
+    },
+    {
+      title: "职场与个人",
+      body: "从你的工作和目标出发，搭建能长期使用的个人 AI 工作方式。",
+    },
+  ],
+  note: "服务形式与预约方式正在整理中。有明确需求，也欢迎先发邮件简单介绍你的情况。",
 }
 
 export const home = {

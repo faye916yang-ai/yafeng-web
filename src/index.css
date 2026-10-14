@@ -135,6 +135,205 @@ a {
   color: var(--paper);
 }
 
+.contact-page,
+.courses-page {
+  min-height: calc(100svh - 11rem);
+}
+
+.contact-intro {
+  max-width: 44rem;
+  margin: 4.5rem 0 2rem;
+}
+
+.contact-intro h1,
+.course-ticket h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(2.2rem, 6vw, 4.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+}
+
+.contact-intro > p:last-child,
+.course-copy {
+  max-width: 38rem;
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.contact-card {
+  min-width: 0;
+  padding: 1.15rem 1.25rem 1.3rem;
+  background: var(--paper);
+  border: 2.5px solid var(--line);
+  border-radius: 1.25rem;
+  box-shadow: var(--shadow);
+}
+
+.contact-card:nth-child(2),
+.contact-card:nth-child(3) {
+  background: var(--accent-3);
+}
+
+.contact-card.is-link:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0 var(--line);
+}
+
+.contact-card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.contact-card-top em {
+  color: var(--accent);
+  font-style: normal;
+  font-weight: 700;
+}
+
+.contact-card > p {
+  margin: 2.2rem 0 0.25rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.contact-card h2 {
+  margin: 0 0 0.7rem;
+  font-size: clamp(1.1rem, 3vw, 1.65rem);
+  overflow-wrap: anywhere;
+}
+
+.contact-card small {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.consulting-card {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 2rem;
+  margin-top: 2rem;
+  padding: clamp(1.35rem, 4vw, 2.4rem);
+  background: var(--hi-b);
+  border: 2.5px solid var(--line);
+  border-radius: 1.6rem;
+  box-shadow: var(--shadow);
+}
+
+.consulting-copy h2 {
+  margin: 0 0 0.8rem;
+  font-size: clamp(1.6rem, 4vw, 2.55rem);
+  line-height: 1.25;
+}
+
+.consulting-copy > p:not(.kicker) {
+  margin: 0 0 1.4rem;
+  max-width: 35rem;
+  line-height: 1.75;
+}
+
+.consulting-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.consulting-list article {
+  padding: 1rem;
+  background: var(--paper);
+  border: 2.5px solid var(--line);
+  border-radius: 1rem;
+}
+
+.consulting-list article span {
+  color: var(--muted);
+  font-size: 0.7rem;
+}
+
+.consulting-list h3 {
+  margin: 0.25rem 0 0.3rem;
+}
+
+.consulting-list p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.consulting-note {
+  padding: 0.25rem 0.2rem;
+}
+
+.courses-page {
+  display: grid;
+  place-items: center;
+  padding: 4rem 0;
+}
+
+.course-ticket {
+  position: relative;
+  width: min(54rem, 100%);
+  padding: clamp(2rem, 7vw, 5rem);
+  overflow: hidden;
+  background: var(--paper);
+  border: 2.5px solid var(--line);
+  border-radius: 2rem 0.7rem 2rem 0.7rem;
+  box-shadow: var(--shadow);
+}
+
+.course-ticket::after {
+  content: "";
+  position: absolute;
+  width: 17rem;
+  height: 17rem;
+  right: -7rem;
+  bottom: -8rem;
+  border: 2.5px solid var(--line);
+  border-radius: 50%;
+  background: var(--hi-b);
+}
+
+.course-ticket > div,
+.course-ticket > strong,
+.course-label {
+  position: relative;
+  z-index: 1;
+}
+
+.course-label {
+  display: inline-block;
+  margin-bottom: 3.5rem;
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+}
+
+.course-copy {
+  margin-bottom: 1.6rem;
+}
+
+.course-ticket > strong {
+  display: inline-block;
+  margin-top: 3.5rem;
+  padding: 0.3rem 0.8rem;
+  background: var(--hi-a);
+  color: var(--hi-a-ink);
+  border: 2.5px solid var(--line);
+  border-radius: 999px;
+  box-shadow: 3px 3px 0 var(--line);
+  font-size: 0.85rem;
+}
+
 .themes {
   display: flex;
   gap: 0.35rem;
@@ -1067,6 +1266,11 @@ footer {
     grid-template-columns: 1fr;
   }
 
+  .contact-grid,
+  .consulting-card {
+    grid-template-columns: 1fr;
+  }
+
   .cards {
     grid-template-columns: 1fr;
   }
@@ -1139,12 +1343,41 @@ footer {
   }
 
   .pill button {
-    padding: 0 0.55rem;
-    font-size: 0.76rem;
+    padding: 0 0.48rem;
+    font-size: 0.72rem;
   }
 
   .brand {
     display: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .shell {
+    width: min(100% - 1rem, 1120px);
+  }
+
+  .top {
+    align-items: stretch;
+  }
+
+  .pill {
+    width: 100%;
+    justify-content: space-between;
+    overflow-x: auto;
+  }
+
+  .pill button {
+    flex: 0 0 auto;
+    padding: 0 0.52rem;
+  }
+
+  .themes {
+    justify-content: center;
+  }
+
+  .contact-intro {
+    margin-top: 2.5rem;
   }
 }
 
