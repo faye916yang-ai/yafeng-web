@@ -318,7 +318,6 @@ a {
 }
 
 .course-ticket > div,
-.course-ticket > strong,
 .course-label {
   position: relative;
   z-index: 1;
@@ -336,15 +335,23 @@ a {
   margin-bottom: 1.6rem;
 }
 
-.course-ticket > strong {
+.course-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.course-status {
   display: inline-block;
-  margin-top: 3.5rem;
-  padding: 0.3rem 0.8rem;
-  background: var(--hi-a);
-  color: var(--hi-a-ink);
-  border: 2.5px solid var(--line);
+  flex: 0 0 auto;
+  padding: 0.45rem 1rem;
+  background: #ffe4df;
+  color: #9f2f35;
+  border: 2.5px solid #9f2f35;
   border-radius: 999px;
-  box-shadow: 3px 3px 0 var(--line);
+  box-shadow: 3px 3px 0 #9f2f35;
   font-size: 0.85rem;
 }
 

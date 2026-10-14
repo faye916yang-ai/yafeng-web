@@ -502,9 +502,11 @@ function CoursesPage() {
           <p className="course-copy">
             关于 AI 工具、个人工作流和 vibe coding 的实操课程，正在慢慢打磨。希望它不是“听完就忘”的课，而是能陪你真的做出东西。
           </p>
-          <a className="cta" href={`mailto:${site.email}?subject=课程上新提醒`}>对课程感兴趣，告诉我 →</a>
+          <div className="course-actions">
+            <a className="cta" href="#contact">对课程感兴趣，告诉我 →</a>
+            <strong className="course-status">敬请期待</strong>
+          </div>
         </div>
-        <strong>敬请期待</strong>
       </div>
     </section>
   )
