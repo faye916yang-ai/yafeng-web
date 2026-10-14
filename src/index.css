@@ -177,35 +177,18 @@ a {
   box-shadow: var(--shadow);
 }
 
-.contact-copy {
-  width: 100%;
-  color: inherit;
-  text-align: left;
-  font: inherit;
-}
-
 .contact-card:nth-child(2),
 .contact-card:nth-child(3) {
   background: var(--accent-3);
 }
 
 .contact-card.contact-github {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--accent-3);
 }
 
-.contact-card.contact-github .contact-card-top,
-.contact-card.contact-github small {
-  color: color-mix(in srgb, var(--paper) 76%, transparent);
-}
-
-.contact-card.contact-github .contact-card-top em,
 .contact-card.contact-github > p {
-  color: var(--paper);
-}
-
-.contact-card.contact-github h2 {
-  font-size: clamp(1.35rem, 3.4vw, 2rem);
+  font-size: clamp(1.65rem, 3.5vw, 2.35rem);
+  letter-spacing: -0.03em;
 }
 
 .contact-card.is-link:hover {
@@ -265,6 +248,55 @@ a {
 .contact-card small {
   color: var(--muted);
   line-height: 1.5;
+}
+
+.contact-direct > p {
+  margin-top: 1.35rem;
+}
+
+.contact-channels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.7rem;
+  margin-top: 1rem;
+}
+
+.contact-channels a,
+.contact-channels button {
+  min-width: 0;
+  padding: 0.9rem;
+  text-align: left;
+  background: var(--bg);
+  border: 2px solid var(--line);
+  border-radius: 0.85rem;
+}
+
+.contact-channels a:hover,
+.contact-channels button:hover {
+  background: var(--hi-b);
+}
+
+.contact-channels span,
+.contact-channels strong,
+.contact-channels small {
+  display: block;
+}
+
+.contact-channels span {
+  margin-bottom: 0.3rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.contact-channels strong {
+  overflow-wrap: anywhere;
+  font-size: clamp(0.9rem, 2vw, 1.08rem);
+}
+
+.contact-channels small {
+  margin-top: 0.7rem;
+  color: var(--accent);
+  font-weight: 700;
 }
 
 .consulting-card {

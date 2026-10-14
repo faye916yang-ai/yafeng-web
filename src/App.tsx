@@ -355,25 +355,6 @@ function ContactPage() {
 
   const contacts = [
     {
-      label: "邮箱",
-      slug: "email",
-      value: site.email,
-      hint: "咨询与合作，请优先邮件联系",
-      href: `mailto:${site.email}`,
-      action: "写邮件 →",
-      image: null,
-    },
-    {
-      label: "微信",
-      slug: "wechat",
-      value: site.wechat,
-      hint: "添加时请备注：AI 咨询 / 合作",
-      href: null,
-      action: copied ? "已复制 ✓" : "点击复制微信号",
-      image: null,
-      copy: true,
-    },
-    {
       label: "GitHub",
       slug: "github",
       value: site.github,
@@ -413,11 +394,31 @@ function ContactPage() {
       </div>
 
       <div className="contact-grid" aria-label="联系方式">
+        <article className="contact-card contact-direct">
+          <div className="contact-card-top">
+            <span>01</span>
+            <em>直接联系我</em>
+          </div>
+          <p>联系方式</p>
+          <div className="contact-channels">
+            <a href={`mailto:${site.email}`}>
+              <span>邮箱</span>
+              <strong>{site.email}</strong>
+              <small>写邮件 →</small>
+            </a>
+            <button type="button" onClick={copyWechat}>
+              <span>微信</span>
+              <strong>{site.wechat}</strong>
+              <small>{copied ? "已复制 ✓" : "点击复制微信号"}</small>
+            </button>
+          </div>
+        </article>
+
         {contacts.map((item, index) => {
           const content = (
             <>
               <div className="contact-card-top">
-                <span>0{index + 1}</span>
+                <span>0{index + 2}</span>
                 <em>{item.action}</em>
               </div>
               {item.image ? (
@@ -431,29 +432,16 @@ function ContactPage() {
             </>
           )
 
-          return item.href ? (
+          return (
             <a
               className={`contact-card is-link contact-${item.slug}`}
               href={item.href}
               key={item.label}
-              target={item.href.startsWith("http") ? "_blank" : undefined}
-              rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+              target="_blank"
+              rel="noreferrer"
             >
               {content}
             </a>
-          ) : item.copy ? (
-            <button
-              type="button"
-              className={`contact-card is-link contact-copy contact-${item.slug}`}
-              key={item.label}
-              onClick={copyWechat}
-            >
-              {content}
-            </button>
-          ) : (
-            <article className="contact-card" key={item.label}>
-              {content}
-            </article>
           )
         })}
       </div>
