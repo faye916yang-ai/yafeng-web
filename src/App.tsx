@@ -401,7 +401,7 @@ function ContactPage() {
     <section className="block contact-page">
       <div className="contact-intro">
         <p className="kicker">CONNECT · COLLABORATE · CREATE</p>
-        <h1>找到我，聊聊你想做的事。</h1>
+        <h1>一起聊聊，你想做的事</h1>
         <p>
           分享 AI 实操，也认真认识每一个想把事情做出来的人。欢迎交流、合作，或来聊聊你的具体问题。
         </p>

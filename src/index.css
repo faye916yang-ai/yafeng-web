@@ -141,7 +141,6 @@ a {
 }
 
 .contact-intro {
-  max-width: 44rem;
   margin: 4.5rem 0 2rem;
 }
 
@@ -151,6 +150,10 @@ a {
   font-size: clamp(2.2rem, 6vw, 4.5rem);
   line-height: 1.08;
   letter-spacing: -0.04em;
+}
+
+.contact-intro h1 {
+  white-space: nowrap;
 }
 
 .contact-intro > p:last-child,
@@ -234,10 +237,16 @@ a {
 }
 
 .consulting-copy h2 {
-  margin: 0 0 1.5rem;
+  align-self: center;
+  margin: 0;
   font-size: clamp(1.6rem, 4vw, 2.55rem);
   line-height: 1.25;
   white-space: nowrap;
+}
+
+.consulting-copy {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
 
 .consulting-actions {
@@ -1276,7 +1285,13 @@ footer {
   }
 
   .consulting-copy h2 {
+    align-self: auto;
+    margin-bottom: 1.5rem;
     white-space: normal;
+  }
+
+  .consulting-copy {
+    display: block;
   }
 
   .cards {
@@ -1386,6 +1401,10 @@ footer {
 
   .contact-intro {
     margin-top: 2.5rem;
+  }
+
+  .contact-intro h1 {
+    white-space: normal;
   }
 
   .contact-row {
