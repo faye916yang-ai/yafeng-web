@@ -977,7 +977,19 @@ a {
 .rail {
   margin-top: 0.4rem;
   padding: 1.15rem 1.2rem 1.3rem;
-  background: var(--paper);
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in srgb, var(--line) 5%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--line) 5%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 22px 22px;
   border: 2.5px solid var(--line);
   border-radius: 1.4rem;
   box-shadow: var(--shadow);
