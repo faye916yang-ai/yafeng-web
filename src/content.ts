@@ -2,6 +2,7 @@ export const site = {
   name: "杨雅风",
   nick: "自由雅风风",
   email: "faye916yang@gmail.com",
+  wechatName: "亿气羊羊",
   wechat: "mmffun66",
   xhs: "雅风风在创造",
   xhsUrl: "https://www.xiaohongshu.com/user/profile/68b705b4000000001a0270dd",

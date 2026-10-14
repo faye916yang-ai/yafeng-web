@@ -399,7 +399,9 @@ function ContactPage() {
             <span>01</span>
             <em>直接联系我</em>
           </div>
-          <p>联系方式</p>
+          <div className="contact-title-row">
+            <p>联系方式</p>
+          </div>
           <div className="contact-channels">
             <a href={`mailto:${site.email}`}>
               <span>邮箱</span>
@@ -408,8 +410,10 @@ function ContactPage() {
             </a>
             <button type="button" onClick={copyWechat}>
               <span>微信</span>
-              <strong>{site.wechat}</strong>
-              <small>{copied ? "已复制 ✓" : "点击复制微信号"}</small>
+              <strong>{site.wechatName}</strong>
+              <small>
+                {copied ? "微信号已复制 ✓" : `微信号 ${site.wechat} · 点击复制`}
+              </small>
             </button>
           </div>
         </article>
@@ -421,13 +425,15 @@ function ContactPage() {
                 <span>0{index + 2}</span>
                 <em>{item.action}</em>
               </div>
+              <div className="contact-title-row">
+                <p>{item.label}</p>
+                <h2>{item.value}</h2>
+              </div>
               {item.image ? (
                 <div className="social-preview">
                   <img src={item.image} alt={`${item.label}主页预览`} />
                 </div>
               ) : null}
-              <p>{item.label}</p>
-              <h2>{item.value}</h2>
               <small>{item.hint}</small>
             </>
           )
