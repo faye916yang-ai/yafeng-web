@@ -355,28 +355,45 @@ function ContactPage() {
 
   const contacts = [
     {
+      label: "邮箱",
+      value: site.email,
+      hint: "咨询与合作",
+      href: `mailto:${site.email}`,
+      action: "写邮件 ↗",
+      external: false,
+    },
+    {
+      label: "微信",
+      value: `${site.wechatName} · ${site.wechat}`,
+      hint: "AI 咨询与合作",
+      href: null,
+      action: copied ? "已复制 ✓" : "复制微信号",
+      copy: true,
+      external: false,
+    },
+    {
       label: "GitHub",
-      slug: "github",
       value: site.github,
-      hint: "看看我正在做的产品和代码",
+      hint: "产品与代码",
       href: site.githubUrl,
       action: "打开主页 ↗",
+      external: true,
     },
     {
       label: "小红书",
-      slug: "xiaohongshu",
       value: site.xhs,
-      hint: "AI 实操、产品记录和真实感受",
+      hint: "AI 实操与产品记录",
       href: site.xhsUrl,
       action: "打开主页 ↗",
+      external: true,
     },
     {
       label: "抖音",
-      slug: "douyin",
       value: site.douyin,
-      hint: "记录成长、思考和日常里的修炼",
+      hint: "成长、思考与日常",
       href: site.douyinUrl,
       action: "打开主页 ↗",
+      external: true,
     },
   ]
 
@@ -390,54 +407,39 @@ function ContactPage() {
         </p>
       </div>
 
-      <div className="contact-grid" aria-label="联系方式">
-        <article className="contact-card contact-direct">
-          <div className="contact-card-top">
-            <span>01</span>
-            <em>直接联系我</em>
-          </div>
-          <div className="contact-title-row">
-            <p>联系方式</p>
-            <h2>邮箱 · 微信</h2>
-          </div>
-          <div className="contact-channels">
-            <a href={`mailto:${site.email}`}>
-              <span>邮箱</span>
-              <strong>{site.email}</strong>
-              <small>写邮件 ↗</small>
-            </a>
-            <button type="button" onClick={copyWechat}>
-              <span>微信</span>
-              <strong>{site.wechatName} · {site.wechat}</strong>
-              <small>
-                {copied ? "微信号已复制 ✓" : "复制微信号"}
-              </small>
-            </button>
-          </div>
-        </article>
-
-        {contacts.map((item, index) => {
+      <div className="contact-list" aria-label="联系方式">
+        {contacts.map((item) => {
           const content = (
             <>
-              <div className="contact-card-top">
-                <span>0{index + 2}</span>
-                <em>{item.action}</em>
-              </div>
-              <div className="contact-title-row">
-                <p>{item.label}</p>
-                <h2>{item.value}</h2>
-              </div>
-              <small>{item.hint}</small>
+              <span className="contact-label">{item.label}</span>
+              <span className="contact-identity">
+                <strong>{item.value}</strong>
+                <small>{item.hint}</small>
+              </span>
+              <span className="contact-action">{item.action}</span>
             </>
           )
 
+          if (item.copy) {
+            return (
+              <button
+                type="button"
+                className="contact-row"
+                key={item.label}
+                onClick={copyWechat}
+              >
+                {content}
+              </button>
+            )
+          }
+
           return (
             <a
-              className={`contact-card is-link contact-${item.slug}`}
-              href={item.href}
+              className="contact-row"
+              href={item.href ?? undefined}
               key={item.label}
-              target="_blank"
-              rel="noreferrer"
+              target={item.external ? "_blank" : undefined}
+              rel={item.external ? "noreferrer" : undefined}
             >
               {content}
             </a>

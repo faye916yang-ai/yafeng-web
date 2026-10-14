@@ -162,119 +162,61 @@ a {
   line-height: 1.8;
 }
 
-.contact-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.contact-card {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  min-height: 14.5rem;
-  padding: 1.15rem 1.25rem 1.3rem;
+.contact-list {
+  overflow: hidden;
   background: var(--paper);
   border: 2.5px solid var(--line);
-  border-radius: 1.25rem;
+  border-radius: 1.4rem;
   box-shadow: var(--shadow);
 }
 
-.contact-card:nth-child(even) {
-  background: var(--accent-3);
-}
-
-.contact-card.contact-github {
-  background: var(--accent-3);
-}
-
-.contact-card.is-link:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 7px 7px 0 var(--line);
-}
-
-.contact-card-top {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  color: var(--muted);
-  font-size: 0.75rem;
-}
-
-.contact-card-top em {
-  color: var(--accent);
-  font-style: normal;
-  font-weight: 700;
-}
-
-.contact-title-row {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
-  margin: auto 0 0.8rem;
-  padding-top: 1.8rem;
-  border-bottom: 2px solid var(--line);
-  padding-bottom: 0.75rem;
-}
-
-.contact-title-row p {
-  margin: 0;
-  color: var(--ink);
-  font-size: 1.08rem;
-  font-weight: 800;
-  letter-spacing: 0.02em;
-}
-
-.contact-title-row h2 {
-  margin: 0;
-  color: var(--ink);
-  font-size: clamp(1rem, 2.2vw, 1.3rem);
-  text-align: right;
-  overflow-wrap: anywhere;
-}
-
-.contact-card small {
-  color: var(--muted);
-  line-height: 1.5;
-}
-
-.contact-channels {
+.contact-row {
   display: grid;
-  gap: 0;
-  margin-top: 0;
-}
-
-.contact-channels a,
-.contact-channels button {
-  display: grid;
-  grid-template-columns: 3.2rem minmax(0, 1fr) auto;
+  grid-template-columns: 7rem minmax(0, 1fr) auto;
   align-items: center;
-  gap: 0.7rem;
-  min-width: 0;
-  padding: 0.65rem 0;
+  gap: 1.25rem;
+  width: 100%;
+  padding: 1.05rem 1.3rem;
   text-align: left;
-  background: transparent;
-  border-bottom: 1px dashed color-mix(in srgb, var(--line) 35%, transparent);
+  border-bottom: 2px solid color-mix(in srgb, var(--line) 20%, transparent);
 }
 
-.contact-channels a:hover,
-.contact-channels button:hover {
-  color: var(--accent);
+.contact-row:last-child {
+  border-bottom: 0;
 }
 
-.contact-channels span {
+.contact-row:hover {
+  background: var(--accent-3);
+}
+
+.contact-label {
+  font-size: 0.92rem;
+  font-weight: 800;
+}
+
+.contact-identity {
+  min-width: 0;
+}
+
+.contact-identity strong,
+.contact-identity small {
+  display: block;
+}
+
+.contact-identity strong {
+  overflow-wrap: anywhere;
+  font-size: 1rem;
+}
+
+.contact-identity small {
+  margin-top: 0.18rem;
   color: var(--muted);
   font-size: 0.75rem;
 }
 
-.contact-channels strong {
-  overflow-wrap: anywhere;
-  font-size: clamp(0.9rem, 2vw, 1.08rem);
-}
-
-.contact-channels small {
+.contact-action {
   color: var(--accent);
+  font-size: 0.8rem;
   font-weight: 700;
   white-space: nowrap;
 }
@@ -1338,17 +1280,8 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .contact-grid,
   .consulting-card {
     grid-template-columns: 1fr;
-  }
-
-  .contact-card {
-    min-height: 11rem;
-  }
-
-  .contact-direct {
-    min-height: auto;
   }
 
   .cards {
@@ -1458,6 +1391,17 @@ footer {
 
   .contact-intro {
     margin-top: 2.5rem;
+  }
+
+  .contact-row {
+    grid-template-columns: 4.2rem minmax(0, 1fr);
+    gap: 0.75rem;
+    padding: 0.9rem 1rem;
+  }
+
+  .contact-action {
+    grid-column: 2;
+    margin-top: -0.15rem;
   }
 }
 
