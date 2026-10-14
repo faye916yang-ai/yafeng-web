@@ -326,9 +326,6 @@ function VideosSection() {
         <h2 className="sec">视频</h2>
         <p>把做法拍给你</p>
       </div>
-      <div className="statement">
-        <h1>先把喜欢的东西做出来，再把做法拍给你。</h1>
-      </div>
       <div className="cards video-cards">
         {videos.map((v) => (
           <a
