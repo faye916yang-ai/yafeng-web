@@ -54,7 +54,7 @@ body,
 
 body {
   color: var(--ink);
-  font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", sans-serif;
+  font-family: "STKaiti", "Kaiti SC", "KaiTi", "楷体", serif;
   background-color: var(--bg);
   background-image:
     radial-gradient(var(--grid) 1.2px, transparent 1.3px);
