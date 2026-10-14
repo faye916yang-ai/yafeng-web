@@ -107,7 +107,13 @@ function HomePage() {
         </div>
         <div className="portrait">
           <div className="portrait-card">
-            <img src="/avatar-mountain.png" alt="杨雅风" />
+            <img
+              src="/avatar-mountain.jpg?v=20261014"
+              alt="杨雅风在雪山前张开双臂的插画"
+              loading="eager"
+              decoding="sync"
+              fetchPriority="high"
+            />
           </div>
           <div className="portrait-dot">YF</div>
         </div>
