@@ -15,7 +15,7 @@ export const site = {
 
 export const consulting = {
   eyebrow: "AI 咨询 · 一起把问题做成方案",
-  title: "如果你也想用 AI，把想法真正做出来",
+  title: "用 AI，把想法真正做出来",
   audiences: [
     {
       title: "企业与团队",

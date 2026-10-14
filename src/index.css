@@ -237,6 +237,7 @@ a {
   margin: 0 0 1.5rem;
   font-size: clamp(1.6rem, 4vw, 2.55rem);
   line-height: 1.25;
+  white-space: nowrap;
 }
 
 .consulting-actions {
@@ -1272,6 +1273,10 @@ footer {
 
   .consulting-card {
     grid-template-columns: 1fr;
+  }
+
+  .consulting-copy h2 {
+    white-space: normal;
   }
 
   .cards {
