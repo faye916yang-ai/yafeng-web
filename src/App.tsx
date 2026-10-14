@@ -108,7 +108,7 @@ function HomePage() {
         <div className="portrait">
           <div className="portrait-card">
             <img
-              src="/avatar-mountain.jpg?v=20261014"
+              src="/avatar-mountain.jpg?v=20261014-2"
               alt="杨雅风在雪山前张开双臂的插画"
               loading="eager"
               decoding="sync"
