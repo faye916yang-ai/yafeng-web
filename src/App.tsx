@@ -360,8 +360,7 @@ function ContactPage() {
       value: site.github,
       hint: "看看我正在做的产品和代码",
       href: site.githubUrl,
-      action: "去看看 →",
-      image: null,
+      action: "打开主页 ↗",
     },
     {
       label: "小红书",
@@ -369,8 +368,7 @@ function ContactPage() {
       value: site.xhs,
       hint: "AI 实操、产品记录和真实感受",
       href: site.xhsUrl,
-      action: "进入主页 →",
-      image: "/xiaohongshu-profile.png",
+      action: "打开主页 ↗",
     },
     {
       label: "抖音",
@@ -378,8 +376,7 @@ function ContactPage() {
       value: site.douyin,
       hint: "记录成长、思考和日常里的修炼",
       href: site.douyinUrl,
-      action: "进入主页 →",
-      image: "/douyin-profile.png",
+      action: "打开主页 ↗",
     },
   ]
 
@@ -401,18 +398,19 @@ function ContactPage() {
           </div>
           <div className="contact-title-row">
             <p>联系方式</p>
+            <h2>邮箱 · 微信</h2>
           </div>
           <div className="contact-channels">
             <a href={`mailto:${site.email}`}>
               <span>邮箱</span>
               <strong>{site.email}</strong>
-              <small>写邮件 →</small>
+              <small>写邮件 ↗</small>
             </a>
             <button type="button" onClick={copyWechat}>
               <span>微信</span>
-              <strong>{site.wechatName}</strong>
+              <strong>{site.wechatName} · {site.wechat}</strong>
               <small>
-                {copied ? "微信号已复制 ✓" : `微信号 ${site.wechat} · 点击复制`}
+                {copied ? "微信号已复制 ✓" : "复制微信号"}
               </small>
             </button>
           </div>
@@ -429,11 +427,6 @@ function ContactPage() {
                 <p>{item.label}</p>
                 <h2>{item.value}</h2>
               </div>
-              {item.image ? (
-                <div className="social-preview">
-                  <img src={item.image} alt={`${item.label}主页预览`} />
-                </div>
-              ) : null}
               <small>{item.hint}</small>
             </>
           )
