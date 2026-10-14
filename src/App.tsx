@@ -451,7 +451,6 @@ function ContactPage() {
         <div className="consulting-copy">
           <p className="kicker">{consulting.eyebrow}</p>
           <h2>{consulting.title}</h2>
-          <p>{consulting.intro}</p>
           <div className="consulting-actions">
             <button type="button" className="cta" onClick={copyWechat}>
               {copied ? "微信号已复制 ✓" : `微信联系 · ${site.wechat}`}
@@ -469,7 +468,6 @@ function ContactPage() {
               <p>{item.body}</p>
             </article>
           ))}
-          <p className="consulting-note">{consulting.note}</p>
         </div>
       </section>
     </section>

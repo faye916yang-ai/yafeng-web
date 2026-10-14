@@ -234,15 +234,9 @@ a {
 }
 
 .consulting-copy h2 {
-  margin: 0 0 0.8rem;
+  margin: 0 0 1.5rem;
   font-size: clamp(1.6rem, 4vw, 2.55rem);
   line-height: 1.25;
-}
-
-.consulting-copy > p:not(.kicker) {
-  margin: 0 0 1.4rem;
-  max-width: 35rem;
-  line-height: 1.75;
 }
 
 .consulting-actions {
@@ -282,10 +276,6 @@ a {
   color: var(--muted);
   font-size: 0.82rem;
   line-height: 1.6;
-}
-
-.consulting-note {
-  padding: 0.25rem 0.2rem;
 }
 
 .courses-page {

@@ -16,8 +16,6 @@ export const site = {
 export const consulting = {
   eyebrow: "AI 咨询 · 一起把问题做成方案",
   title: "如果你也想用 AI，把想法真正做出来",
-  intro:
-    "现在可以直接联系我预约 AI 咨询。我们会聊清楚你的真实问题，找到适合你的工具、方法与落地路径。",
   audiences: [
     {
       title: "企业与团队",
@@ -28,7 +26,6 @@ export const consulting = {
       body: "从你的工作和目标出发，搭建能长期使用的个人 AI 工作方式。",
     },
   ],
-  note: "现在即可预约。有明确需求，欢迎添加微信或发邮件，简单介绍你的情况与希望解决的问题。",
 }
 
 export const home = {
