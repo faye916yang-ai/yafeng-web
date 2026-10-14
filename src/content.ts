@@ -2,8 +2,11 @@ export const site = {
   name: "杨雅风",
   nick: "自由雅风风",
   email: "faye916yang@gmail.com",
+  wechat: "mmffun66",
   xhs: "雅风风在创造",
-  douyin: "账号即将更新",
+  xhsUrl: "https://www.xiaohongshu.com/user/profile/68b705b4000000001a0270dd",
+  douyin: "ptaomomo",
+  douyinUrl: "https://v.douyin.com/A9VWjtOJiOw/",
   github: "faye916yang-ai",
   githubUrl: "https://github.com/faye916yang-ai",
   domain: "yafeng.dadao.life",
@@ -13,7 +16,7 @@ export const consulting = {
   eyebrow: "AI 咨询 · 一起把问题做成方案",
   title: "如果你也想用 AI，把想法真正做出来",
   intro:
-    "我会陆续开放面向企业老板和职场个人的 AI 咨询，聊清楚你的真实问题，找到适合你的工具、方法与落地路径。",
+    "现在可以直接联系我预约 AI 咨询。我们会聊清楚你的真实问题，找到适合你的工具、方法与落地路径。",
   audiences: [
     {
       title: "企业与团队",
@@ -24,7 +27,7 @@ export const consulting = {
       body: "从你的工作和目标出发，搭建能长期使用的个人 AI 工作方式。",
     },
   ],
-  note: "服务形式与预约方式正在整理中。有明确需求，也欢迎先发邮件简单介绍你的情况。",
+  note: "现在即可预约。有明确需求，欢迎添加微信或发邮件，简单介绍你的情况与希望解决的问题。",
 }
 
 export const home = {

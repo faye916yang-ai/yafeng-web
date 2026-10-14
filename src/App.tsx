@@ -345,34 +345,60 @@ function VideosPage() {
 }
 
 function ContactPage() {
+  const [copied, setCopied] = useState(false)
+
+  async function copyWechat() {
+    await navigator.clipboard.writeText(site.wechat)
+    setCopied(true)
+    window.setTimeout(() => setCopied(false), 1800)
+  }
+
   const contacts = [
     {
       label: "邮箱",
+      slug: "email",
       value: site.email,
       hint: "咨询与合作，请优先邮件联系",
       href: `mailto:${site.email}`,
       action: "写邮件 →",
+      image: null,
+    },
+    {
+      label: "微信",
+      slug: "wechat",
+      value: site.wechat,
+      hint: "添加时请备注：AI 咨询 / 合作",
+      href: null,
+      action: copied ? "已复制 ✓" : "点击复制微信号",
+      image: null,
+      copy: true,
     },
     {
       label: "GitHub",
+      slug: "github",
       value: site.github,
       hint: "看看我正在做的产品和代码",
       href: site.githubUrl,
       action: "去看看 →",
+      image: null,
     },
     {
       label: "小红书",
+      slug: "xiaohongshu",
       value: site.xhs,
       hint: "AI 实操、产品记录和真实感受",
-      href: null,
-      action: "搜索账号",
+      href: site.xhsUrl,
+      action: "进入主页 →",
+      image: "/xiaohongshu-profile.png",
     },
     {
       label: "抖音",
+      slug: "douyin",
       value: site.douyin,
-      hint: "账号确认后会在这里同步",
-      href: null,
-      action: "敬请期待",
+      hint: "记录成长、思考和日常里的修炼",
+      href: site.douyinUrl,
+      action: "进入主页 →",
+      image: "/douyin-profile.png",
     },
   ]
 
@@ -394,6 +420,11 @@ function ContactPage() {
                 <span>0{index + 1}</span>
                 <em>{item.action}</em>
               </div>
+              {item.image ? (
+                <div className="social-preview">
+                  <img src={item.image} alt={`${item.label}主页预览`} />
+                </div>
+              ) : null}
               <p>{item.label}</p>
               <h2>{item.value}</h2>
               <small>{item.hint}</small>
@@ -402,7 +433,7 @@ function ContactPage() {
 
           return item.href ? (
             <a
-              className="contact-card is-link"
+              className={`contact-card is-link contact-${item.slug}`}
               href={item.href}
               key={item.label}
               target={item.href.startsWith("http") ? "_blank" : undefined}
@@ -410,6 +441,15 @@ function ContactPage() {
             >
               {content}
             </a>
+          ) : item.copy ? (
+            <button
+              type="button"
+              className={`contact-card is-link contact-copy contact-${item.slug}`}
+              key={item.label}
+              onClick={copyWechat}
+            >
+              {content}
+            </button>
           ) : (
             <article className="contact-card" key={item.label}>
               {content}
@@ -423,7 +463,14 @@ function ContactPage() {
           <p className="kicker">{consulting.eyebrow}</p>
           <h2>{consulting.title}</h2>
           <p>{consulting.intro}</p>
-          <a className="cta" href={`mailto:${site.email}?subject=AI 咨询`}>聊聊你的需求 →</a>
+          <div className="consulting-actions">
+            <button type="button" className="cta" onClick={copyWechat}>
+              {copied ? "微信号已复制 ✓" : `微信联系 · ${site.wechat}`}
+            </button>
+            <a className="cta cta-secondary" href={`mailto:${site.email}?subject=AI 咨询`}>
+              邮箱联系 →
+            </a>
+          </div>
         </div>
         <div className="consulting-list">
           {consulting.audiences.map((item, index) => (

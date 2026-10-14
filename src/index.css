@@ -177,9 +177,35 @@ a {
   box-shadow: var(--shadow);
 }
 
+.contact-copy {
+  width: 100%;
+  color: inherit;
+  text-align: left;
+  font: inherit;
+}
+
 .contact-card:nth-child(2),
 .contact-card:nth-child(3) {
   background: var(--accent-3);
+}
+
+.contact-card.contact-github {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.contact-card.contact-github .contact-card-top,
+.contact-card.contact-github small {
+  color: color-mix(in srgb, var(--paper) 76%, transparent);
+}
+
+.contact-card.contact-github .contact-card-top em,
+.contact-card.contact-github > p {
+  color: var(--paper);
+}
+
+.contact-card.contact-github h2 {
+  font-size: clamp(1.35rem, 3.4vw, 2rem);
 }
 
 .contact-card.is-link:hover {
@@ -203,8 +229,31 @@ a {
 
 .contact-card > p {
   margin: 2.2rem 0 0.25rem;
-  color: var(--muted);
-  font-size: 0.78rem;
+  color: var(--ink);
+  font-size: 1.08rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.social-preview {
+  height: 10rem;
+  margin: 1rem 0 0;
+  overflow: hidden;
+  border: 2px solid var(--line);
+  border-radius: 0.8rem;
+  background: var(--paper);
+}
+
+.social-preview img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.contact-card:has(.social-preview) > p {
+  margin-top: 1rem;
 }
 
 .contact-card h2 {
@@ -240,6 +289,17 @@ a {
   margin: 0 0 1.4rem;
   max-width: 35rem;
   line-height: 1.75;
+}
+
+.consulting-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.cta-secondary {
+  background: var(--paper);
+  color: var(--ink);
 }
 
 .consulting-list {
