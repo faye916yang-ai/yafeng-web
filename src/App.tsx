@@ -158,6 +158,29 @@ function HomePage() {
             <span>已上线</span>
             <span>待上线</span>
           </div>
+          <aside className="rail-studio" aria-label="正在创造的产品">
+            <div>
+              <span>BUILDING IN PUBLIC</span>
+              <strong>把想法做成能用的产品</strong>
+              <p>边做、边用、边分享</p>
+            </div>
+            <div className="rail-apps">
+              {products.map((product) => (
+                <span className="rail-app" key={product.name}>
+                  {product.logo ? (
+                    <img src={product.logo} alt="" />
+                  ) : (
+                    <b>{product.name.slice(0, 1)}</b>
+                  )}
+                  <small>{product.name}</small>
+                </span>
+              ))}
+            </div>
+          </aside>
+          <aside className="rail-note" aria-label="创作宣言">
+            <span>YAFENG'S NOTE</span>
+            <strong>做喜欢的东西，也把它们认真做完</strong>
+          </aside>
           <ol className="rail-list">
             {timeline.map((item) => (
               <li className={`rail-item ${item.side}`} key={`${item.date}-${item.title}`}>

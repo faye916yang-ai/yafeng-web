@@ -1,6 +1,6 @@
 export const site = {
   name: "杨雅风",
-  nick: "自由的杨雅风",
+  nick: "自由雅风风",
   email: "faye916yang@gmail.com",
   wechatName: "亿气羊羊",
   wechat: "mmffun66",
@@ -31,7 +31,7 @@ export const consulting = {
 export const home = {
   kicker: "Yafeng · Chengdu",
   line1: "我是",
-  name: "自由的杨雅风",
+  name: "自由雅风风",
   line2Before: "用 AI 做",
   line2Hi: "喜欢的东西",
   motto: "Make things people want, then make people use.",
