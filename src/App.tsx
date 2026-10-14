@@ -11,20 +11,20 @@ import {
   videos,
 } from "./content"
 
-type Page = "home" | "products" | "videos" | "contact" | "courses"
+type Page = "home" | "products" | "contact" | "courses"
 type Theme = "sky" | "mocha"
 
 const pages: { id: Page; label: string }[] = [
   { id: "home", label: "首页" },
-  { id: "products", label: "产品" },
-  { id: "videos", label: "视频" },
+  { id: "products", label: "产品与视频" },
   { id: "contact", label: "联系我" },
   { id: "courses", label: "课程" },
 ]
 
 function readHash(): Page {
   const h = window.location.hash.replace("#", "")
-  if (h === "products" || h === "videos" || h === "contact" || h === "courses") return h
+  if (h === "videos") return "products"
+  if (h === "products" || h === "contact" || h === "courses") return h
   return "home"
 }
 
@@ -107,7 +107,7 @@ function HomePage() {
         </div>
         <div className="portrait">
           <div className="portrait-card">
-            <img src="/avatar.png" alt="杨雅风" />
+            <img src="/avatar-mountain.png" alt="杨雅风" />
           </div>
           <div className="portrait-dot">YF</div>
         </div>
@@ -191,6 +191,7 @@ function ProductsPage() {
   }, [openProduct])
 
   return (
+    <>
     <section className="block">
       <div className="sec-head">
         <h1 className="sec">产品</h1>
@@ -205,7 +206,7 @@ function ProductsPage() {
               ) : null}
               <div className="card-top">
                 <b>{p.n}</b>
-                <em className={p.detail || p.href ? "on" : ""}>{p.status}</em>
+                <em className={p.status === "已上线" || p.detail || p.href ? "on" : ""}>{p.status}</em>
               </div>
               <div className="pcard-main">
                 {p.logo ? (
@@ -307,12 +308,18 @@ function ProductsPage() {
         </div>
       ) : null}
     </section>
+    <VideosSection />
+    </>
   )
 }
 
-function VideosPage() {
+function VideosSection() {
   return (
     <section className="block">
+      <div className="sec-head">
+        <h2 className="sec">视频</h2>
+        <p>把做法拍给你</p>
+      </div>
       <div className="statement">
         <h1>先把喜欢的东西做出来，再把做法拍给你。</h1>
       </div>
@@ -568,7 +575,6 @@ export default function App() {
       <main>
         {page === "home" && <HomePage />}
         {page === "products" && <ProductsPage />}
-        {page === "videos" && <VideosPage />}
         {page === "contact" && <ContactPage />}
         {page === "courses" && <CoursesPage />}
       </main>
