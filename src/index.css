@@ -1137,8 +1137,7 @@ a {
 }
 
 .video-cards {
-  grid-template-columns: repeat(2, minmax(0, 18rem));
-  justify-content: start;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.9rem;
 }
 
@@ -1176,6 +1175,33 @@ a {
   height: 100%;
   object-fit: contain;
   object-position: center;
+}
+
+.vthumb-text {
+  display: flex;
+  align-items: flex-end;
+  padding: 1rem;
+  background:
+    radial-gradient(circle at 82% 18%, color-mix(in srgb, var(--hi-b) 72%, white) 0 14%, transparent 15%),
+    linear-gradient(145deg, var(--accent-3), var(--paper));
+}
+
+.vcover-copy {
+  display: grid;
+  gap: 0.45rem;
+  padding-right: 2.4rem;
+}
+
+.vcover-copy span {
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.vcover-copy strong {
+  font-size: 1rem;
+  line-height: 1.35;
 }
 
 .vthumb .play {
@@ -1263,6 +1289,10 @@ footer {
 
   .video-cards .pcard:last-child {
     grid-column: auto;
+  }
+
+  .video-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 

@@ -325,8 +325,15 @@ function VideosPage() {
             target="_blank"
             rel="noreferrer"
           >
-            <div className="vthumb">
-              <img src={v.cover} alt="" />
+            <div className={`vthumb ${v.cover ? "" : "vthumb-text"}`}>
+              {v.cover ? (
+                <img src={v.cover} alt="" />
+              ) : (
+                <div className="vcover-copy">
+                  <span>{v.platform}</span>
+                  <strong>{v.title}</strong>
+                </div>
+              )}
               <span className="play" aria-hidden="true">
                 ▶
               </span>
